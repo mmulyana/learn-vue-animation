@@ -7,7 +7,9 @@ import { RouterLink, RouterView } from 'vue-router'
 		<RouterLink to="/">Home</RouterLink>
 		<RouterLink to="/about">About</RouterLink>
 	</div>
-	<RouterView />
+	<Transition name="route" mode="out-in">
+		<RouterView :key="$route.fullPath" />
+	</Transition>
 </template>
 
 <style scoped>
@@ -28,5 +30,28 @@ import { RouterLink, RouterView } from 'vue-router'
 	text-decoration: none;
 	color: white;
 	opacity: 0.8;
+}
+
+.route-enter-from {
+	opacity: 0;
+	transform: translateX(-30px);
+}
+.route-enter-to {
+	opacity: 1;
+	transform: translateX(0);
+}
+.route-enter-active {
+	transition: all 0.5s ease;
+}
+.route-leave-from {
+	opacity: 1;
+	transform: translateX(0px);
+}
+.route-leave-to {
+	opacity: 0;
+	transform: translateX(30px);
+}
+.route-leave-active {
+	transition: all 0.5s ease;
 }
 </style>
