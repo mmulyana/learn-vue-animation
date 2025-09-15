@@ -30,7 +30,7 @@ function removeTodo(id) {
 				@keyup.enter="addTodo"
 				class="todo-input"
 			/>
-			<button @click="addTodo">Tambah</button>
+			<button @click="addTodo">Add</button>
 		</div>
 
 		<TransitionGroup name="slide" tag="ul" class="todo-list">
@@ -47,23 +47,22 @@ function removeTodo(id) {
 	position: relative;
 	list-style: none;
 	padding: 0;
-	transition: all 5s ease;
 }
 
 .todo-item {
 	display: flex;
 	justify-content: space-between;
 	margin: 6px 0;
-	padding: 8px 12px;
 	border-radius: 8px;
 	position: relative;
+  align-items: center;
 }
 
 .todo-input {
 	height: 32px;
 	border-radius: 8px;
 	border: none;
-  padding: 0 0.8em;
+	padding: 0 0.8em;
 }
 
 .todo-form {
@@ -95,4 +94,8 @@ function removeTodo(id) {
 .slide-leave-active {
 	transition: all 0.4s ease;
 }
+.slide-move {
+	transition: all 0.5s ease-in-out;
+}
+
 </style>
